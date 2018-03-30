@@ -11,7 +11,10 @@ from pythonosc import osc_server
 from pythonosc import osc_message_builder
 from pythonosc import osc_bundle_builder
 from pythonosc import udp_client
+from gensim.models import Word2Vec
 import gensim.downloader as api
+import gensim
+
 
 #send OSC messages to port 6448 on localhost
 client = udp_client.SimpleUDPClient("127.0.0.1", 6448)
@@ -19,9 +22,14 @@ client = udp_client.SimpleUDPClient("127.0.0.1", 6448)
 print("Sends 25 word2vec coordinates to Wekinator (or somewhere else) via OSC")
 print("Sends to port 6448 with OSC message name /wek/inputs")
 print("A message is sent for each word you enter below.")
-print("Loading word model; please wait...")
-wv_model = api.load("glove-twitter-25")  # download the model and return as object ready for use
-print("Word model loaded!")
+
+# Download model if necessary:
+print("Downloading model if necessary...")
+model_location = api.load("glove-twitter-25", return_path=True)
+
+#Load model into variable:
+print("Loading model from ", model_location, "...")
+wv_model = gensim.models.KeyedVectors.load_word2vec_format(model_location)
 
 try :    
   while 1: # endless loop
