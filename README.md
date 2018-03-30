@@ -1,4 +1,6 @@
 # word2vec2osc
+By Rebecca Fiebrink
+
 This script sends word2vec data via OSC in a format compatible with Wekinator. 
 
 Requires Python 3.x
