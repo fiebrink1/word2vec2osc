@@ -6,8 +6,6 @@
 #   easy_install -U gensim
 #   pip install python-osc
 
-from pythonosc import dispatcher
-from pythonosc import osc_server
 from pythonosc import osc_message_builder
 from pythonosc import osc_bundle_builder
 from pythonosc import udp_client
