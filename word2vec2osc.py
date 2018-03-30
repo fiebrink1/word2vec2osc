@@ -2,6 +2,9 @@
 # By Rebecca Fiebrink, 2018
 # 
 # Requires pythonosc and gensim libraries
+# Install (just once) on command line with following commands:
+#   easy_install -U gensim
+#   pip install python-osc
 
 from pythonosc import dispatcher
 from pythonosc import osc_server
